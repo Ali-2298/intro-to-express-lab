@@ -22,13 +22,16 @@ app.get('/roll/:rollnumber', (req, res) => {
     res.send(`You rolled a ${rolledNumber}!`);
 });
 // Exercise 3
-app.get('/collectibles/:item', (req,res) => {
-      const collectibles = [
+app.get('/collectibles/:item', (req, res) => {
+  const collectibles = [
     { name: 'shiny ball', price: 5.95 },
     { name: 'autographed picture of a dog', price: 10 },
     { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
   ];
-    res.send(`So, you want the ${req.params.name}, For ${req.params.price}, it can be yours!`);
+
+  const item = collectibles[req.params.item];
+
+  res.send(`So, you want the ${item.name}, For ${item.price}, it can be yours!`);
 });
 
 const shoes = [
